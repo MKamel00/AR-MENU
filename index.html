@@ -1,48 +1,66 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>3D AR Restaurant Menu</title>
     
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     
     <style>
-        body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: #f7f7f7; font-family: sans-serif; }
-        model-viewer { width: 100vw; height: 100vh; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body, html { width: 100%; height: 100%; background-color: #fafafa; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
         
-        /* Custom AR Button Styling */
-        #ar-button {
-            background-color: #ff4757;
-            color: white;
-            border-radius: 30px;
+        #menu-container { width: 100vw; height: 100vh; position: relative; }
+        model-viewer { width: 100%; height: 100%; display: block; }
+        
+        /* Premium Custom AR Button */
+        #custom-ar-btn {
+            background-color: #e22525;
+            color: #ffffff;
             border: none;
+            border-radius: 30px;
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
             position: absolute;
-            bottom: 24px;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
-            padding: 14px 28px;
-            font-size: 16px;
-            font-weight: bold;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 24px rgba(226, 37, 37, 0.3);
             cursor: pointer;
+            z-index: 999;
+            transition: transform 0.2s ease;
+        }
+        
+        #custom-ar-btn:active {
+            transform: translateX(-50%) scale(0.95);
         }
     </style>
 </head>
 <body>
 
-    <model-viewer 
-        src="bmw_e34_stance_style.glb" 
-        ios-src="bmw_e34_stance_style.usdz"
-      ar 
-    ar-modes="scene-viewer quick-look webxr" 
-    ar-placement="table"
-    camera-controls 
-    touch-action="pan-y"
-    shadow-intensity="1.5"
-    alt="A 3D model of a menu item">
-    
-    <button slot="ar-button" id="ar-button">
-        🍽️ VIEW IN AR (REAL SIZE)
-    </button>
-</model-viewer>
+    <div id="menu-container">
+        <model-viewer 
+            src="bmw_e34_stance_style.glb" 
+            ios-src="bmw_e34_stance_style.usdz" 
+            ar 
+            ar-modes="scene-viewer quick-look webxr" 
+            camera-controls 
+            touch-action="pan-y"
+            shadow-intensity="1.5"
+            shadow-softness="1"
+            exposure="1.2"
+            environment-image="neutral"
+            ar-placement="floor">
+            
+            <button slot="ar-button" id="custom-ar-btn">
+                🍽️ VIEW ON MY TABLE
+            </button>
+            
+        </model-viewer>
+    </div>
+
+</body>
+</html>
