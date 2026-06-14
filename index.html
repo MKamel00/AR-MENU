@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -33,26 +33,19 @@
             z-index: 999;
             transition: transform 0.2s ease;
         }
-        
-        #custom-ar-btn:active {
-            transform: translateX(-50%) scale(0.95);
-        }
     </style>
 </head>
 <body>
 
     <div id="menu-container">
         <model-viewer 
-            src="bmw_e34_stance_style.glb" 
-            ios-src="bmw_e34_stance_style.usdz" 
+            src="https://MKamel00.github.io/AR-MENU/bmw_e34_stance_style.glb" 
+            ios-src="https://MKamel00.github.io/AR-MENU/bmw_e34_stance_style.usdz" 
             ar 
             ar-modes="scene-viewer quick-look webxr" 
             camera-controls 
             touch-action="pan-y"
             shadow-intensity="1.5"
-            shadow-softness="1"
-            exposure="1.2"
-            environment-image="neutral"
             ar-placement="floor">
             
             <button slot="ar-button" id="custom-ar-btn">
