@@ -33,17 +33,15 @@
 
     <model-viewer 
         src="bmw_e34_stance_style.glb" 
-        ar 
-        ar-modes="webxr scene-viewer quick-look" 
-        camera-controls 
-        touch-action="pan-y" 
-        shadow-intensity="1.5"
-        interaction-prompt="none">
-        
-        <button slot="ar-button" id="ar-button">
-            🍽️ VIEW ON YOUR TABLE (AR)
-        </button>
-    </model-viewer>
-
-</body>
-</html>
+      ar 
+    ar-modes="scene-viewer quick-look webxr" 
+    ar-placement="floor"
+    camera-controls 
+    touch-action="pan-y"
+    shadow-intensity="1.5"
+    alt="A 3D model of a menu item">
+    
+    <button slot="ar-button" id="ar-button">
+        🍽️ VIEW IN AR (REAL SIZE)
+    </button>
+</model-viewer>
